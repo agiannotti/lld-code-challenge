@@ -5,6 +5,9 @@
       <h1 class="title">
         lld-code-challenge
       </h1>
+      <NuxtLink to="/about">About</NuxtLink>
+      <NuxtLink to="/data">About</NuxtLink>
+
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -20,22 +23,14 @@
           rel="noopener noreferrer"
           class="button--grey"
         >
-          GitHub
+          Git
         </a>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  async getProducts({ $axios }) {
-    const api = process.env.API_URL;
-    const products = await $axios.$get(api);
-    return products;
-  }
-};
-</script>
+<script></script>
 
 <style>
 /* Sample `apply` at-rules with Tailwind CSS
