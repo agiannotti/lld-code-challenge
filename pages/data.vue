@@ -3,10 +3,16 @@
     <!-- <DataCard v-for="(product, index) in products" :key="index" /> -->
     <ul>
       <div v-for="(product, index) in products" :key="index" :product="product">
-        <li v-for="data in product" :key="data.index">
-          <br />{{ data.name }} {{ data.price }}{{ data.description }}
-          <img :src="data.image" :alt="data.name" />
-        </li>
+        <div v-for="data in product" :key="data.index">
+          <div class="md:flex">
+            <a class="md:flex-shrink-0">
+              <img :src="data.image" :alt="data.name" />
+            </a>
+          </div>
+          <p class="mt-2 text-gray-600">{{ data.name }}</p>
+          <p class="mt-2 text-gray-600">{{ data.description }}</p>
+          <p class="mt-2 text-gray-600">{{ data.price }}</p>
+        </div>
       </div>
     </ul>
   </div>
@@ -18,9 +24,16 @@ export default {
     const API_URL =
       'https://trayvonnorthern.com/Edgewood-API/public/api/products';
     const products = await $axios.$get(API_URL);
-    console.log(products.data[0].id);
     return { products };
   },
-  data() {},
+  data() {
+    return { products: {} };
+  },
 };
 </script>
+
+<style lang="postcss">
+img {
+  height: 120px;
+}
+</style>
