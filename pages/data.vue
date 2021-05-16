@@ -1,20 +1,18 @@
 <template>
   <div>
-    <h1 class="flex justify-center m-auto">Products</h1>
-    <form class="shadow-md rounded-sm px-8 pt-6 pb-8 mb-4">
-      <label for="select"></label>
-      <select
-        class="flex justify-center m-auto rounded-2xl border-2 w-1/2"
-        name="select"
-        value="filter"
-        label="{}"
-      >
-        <option>Search Products...</option>
-        <option value="categories">Category</option>
-        <option value="catNames">Category Name</option>
-        <option>All</option>
-      </select>
-    </form>
+    <h1
+      class="
+        flex
+        text-2xl text-red-800
+        justify-center
+        m-auto
+        font-semibold
+        pb-4
+      "
+    >
+      Products
+    </h1>
+    <Categories />
     <div class="container justify-center m-auto">
       <div class="flex flex-wrap justify-center">
         <Product
@@ -29,11 +27,11 @@
 
 <script>
 import Product from '../components/Product';
-import Filter from '../components/Filter';
+import Categories from '../components/Categories';
 export default {
   components: {
     Product,
-    Filter,
+    Categories,
   },
 
   data() {
