@@ -16,7 +16,7 @@
       </select>
     </form>
     <div class="flex container justify-center mx-auto">
-      <div class="grid grid-cols-4 gap-2">
+      <div class="flex flex-wrap justify-center">
         <Product
           v-for="product in products"
           :key="product.id"

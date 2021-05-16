@@ -1,5 +1,5 @@
 <template>
-  <a class="relative w-52 block flex">
+  <a class="relative w-52 block flex m-1">
     <!-- <span class="relative bg-black opacity-70 z-10"
       ><img class="max-h-48 min-w-48 z-0" :src="product.image" alt="" /><span
         class="relative b-0 z-20 text-white text-sm"
