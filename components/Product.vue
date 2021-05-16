@@ -1,12 +1,12 @@
 <template>
-  <a class="relative w-52 block flex m-1">
+  <div class="flex--me relative max-w-52 block m-1">
     <!-- <span class="relative bg-black opacity-70 z-10"
       ><img class="max-h-48 min-w-48 z-0" :src="product.image" alt="" /><span
         class="relative b-0 z-20 text-white text-sm"
         >{{ product.name }}${{ product.price }}</span
       ></span
     > -->
-    <img class="w-52 h-52" :src="product.image" alt="" />
+    <img class="w-full h-52" :src="product.image" alt="" />
     <span
       class="
         absolute
@@ -27,7 +27,7 @@
       {{ product.name }}<br />
       ${{ product.price }}.00
     </span>
-  </a>
+  </div>
 </template>
 
 <script>
@@ -36,3 +36,9 @@ export default {
   props: ['product'],
 };
 </script>
+
+<style>
+.flex--me {
+  flex: 0 1 20%;
+}
+</style>
