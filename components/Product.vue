@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-auto relative max-w-52 block m-1">
+  <div class="flex--me relative max-w-52 block m-1">
     <!-- <span class="relative bg-black opacity-70 z-10"
       ><img class="max-h-48 min-w-48 z-0" :src="product.image" alt="" /><span
         class="relative b-0 z-20 text-white text-sm"
@@ -36,3 +36,9 @@ export default {
   props: ['product'],
 };
 </script>
+
+<style>
+.flex--me {
+  flex: 0 1 20%;
+}
+</style>
