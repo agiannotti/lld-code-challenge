@@ -45,11 +45,11 @@
 
 <script>
 import Product from '../components/Product';
-import Filter from '../components/Filter';
+import Categories from '../components/Categories';
 export default {
   components: {
     Product,
-    Filter,
+    Categories,
   },
 
   data() {
