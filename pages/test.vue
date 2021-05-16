@@ -1,47 +1,50 @@
 <template>
-  <div class="container text-grey-darkest">
-    <h1>Products:</h1>
-
-    <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <div>
+    <h1 class="flex justify-center m-auto">Products</h1>
+    <form class="shadow-md rounded-sm px-8 pt-6 pb-8 mb-4">
       <label for="select"></label>
-      <span>Filter by</span>
       <select
-        class="rounded-2xl border-2"
+        class="flex justify-center m-auto rounded-2xl border-2 w-1/2"
         name="select"
         value="filter"
         label="{}"
-        placeholder="Search Products..."
       >
-        <option></option>
+        <option>Search Products...</option>
         <option value="categories">Category</option>
         <option value="catNames">Category Name</option>
+        <option>All</option>
       </select>
     </form>
-
-    <Product
-      v-for="(product, index )in products"
-      :key="index"
-      :id="index"
-      :product="product.product"
-    />
+    <div class="flex container justify-center mx-auto">
+      <div class="grid grid-cols-4 gap-2">
+        <Product
+          v-for="product in products"
+          :key="product.id"
+          :product="product"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Product from '../components/Product';
+import Filter from '../components/Filter';
 export default {
   components: {
     Product,
+    Filter,
   },
 
   data() {
     return { products: [] };
   },
   async asyncData({ $axios }) {
-    const API_URL =
-      'https://trayvonnorthern.com/Edgewood-API/public/api/products';
     try {
-      const products = await $axios.$get(API_URL);
+      const API_URL =
+        'https://trayvonnorthern.com/Edgewood-API/public/api/products';
+      const res = await $axios.$get(API_URL);
+      const products = res.data;
       return { products };
     } catch (error) {
       console.log(error);

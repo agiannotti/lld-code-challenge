@@ -1,7 +1,14 @@
 <template>
-  <div class="container text-grey-darkest">
-    <h1>Products:</h1>
-
+  <div
+    class="
+      flex-1
+      container
+      m-auto
+      text-grey-darkest
+      items-center
+      justify-center
+    "
+  >
     <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <label for="select"></label>
       <span>Filter by</span>
@@ -24,8 +31,8 @@
       :key="index"
       :product="product"
     >
-      <div class="" v-for="data in product" :key="data.id">
-        <img class="" :src="data.image" :alt="data.name" />
+      <div class="h-150 w-120" v-for="data in product" :key="data.id">
+        <img class="z-0 w-full max-h-32" :src="data.image" :alt="data.name" />
         <span class="block bg-black opacity-70 z-10">
           <span class="relative z-20 text-white text-sm">{{ data.name }}</span>
           <span class="relative z-20 text-white text-sm">{{ data.price }}</span>
@@ -44,7 +51,7 @@ export default {
     return { products };
   },
   data() {
-    return { products: [] };
+    return { products: {} };
   },
 };
 
