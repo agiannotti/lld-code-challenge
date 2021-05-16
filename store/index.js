@@ -5,16 +5,25 @@ export const state = () => {
 
 //getters
 export const getters = {};
+
 //actions
-//User for async!!
+//Use for async!
 export const actions = {
   async getProducts({ $axios }) {
+    // hit api with some axios
     const API_URL =
       'https://trayvonnorthern.com/Edgewood-API/public/api/products';
-    const res = await $axios.$get(API_URL);
+    const products = await $axios.$post(API_URL);
+    // commit mutation
+    commit('addProducts', products);
+    return { products };
   },
 };
 
 //mutations
 // synchronous, will not wait
-export const mutations = {};
+export const mutations = {
+  addProducts(state, products) {
+    state.products.push({ ...products });
+  },
+};
