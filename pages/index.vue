@@ -2,23 +2,13 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">
-        lld-code-challenge
-      </h1>
-      <NuxtLink to="/about">About</NuxtLink>
-      <NuxtLink to="/data">About</NuxtLink>
-
+      <h1 class="title">Limelight Dev Code Challenge</h1>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
+        <a target="_blank" rel="noopener noreferrer" class="button--green">
+          <NuxtLink to="/data">Products</NuxtLink>
         </a>
         <a
-          href="https://github.com/nuxt/nuxt.js"
+          href="https://github.com/agiannotti/lld-code-challenge.git"
           target="_blank"
           rel="noopener noreferrer"
           class="button--grey"

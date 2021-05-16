@@ -18,33 +18,34 @@
       </select>
     </form>
 
-    <div
-      class="grid grid-cols-4 grid-flow-row gap-2"
-      v-for="(product, index) in products"
+    <Product
+      v-for="(product, index )in products"
       :key="index"
-      :product="product"
-    >
-      <div class="" v-for="data in product" :key="data.id">
-        <img class="" :src="data.image" :alt="data.name" />
-        <span class="block bg-black opacity-70 z-10">
-          <span class="relative z-20 text-white text-sm">{{ data.name }}</span>
-          <span class="relative z-20 text-white text-sm">{{ data.price }}</span>
-        </span>
-      </div>
-    </div>
+      :id="index"
+      :product="product.product"
+    />
   </div>
 </template>
 
 <script>
+import Product from '../components/Product';
 export default {
+  components: {
+    Product,
+  },
+
+  data() {
+    return { products: [] };
+  },
   async asyncData({ $axios }) {
     const API_URL =
       'https://trayvonnorthern.com/Edgewood-API/public/api/products';
-    const products = await $axios.$get(API_URL);
-    return { products };
-  },
-  data() {
-    return { products: [] };
+    try {
+      const products = await $axios.$get(API_URL);
+      return { products };
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 
