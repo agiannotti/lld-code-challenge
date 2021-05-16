@@ -1,18 +1,34 @@
 <template>
   <div>
-    <h1 class="flex justify-center m-auto">Products</h1>
-    <form class="shadow-md rounded-sm px-8 pt-6 pb-8 mb-4">
+    <h1
+      class="
+        flex
+        text-2xl text-red-800
+        justify-center
+        m-auto
+        font-semibold
+        pb-4
+      "
+    >
+      Products
+    </h1>
+    <form class="">
       <label for="select"></label>
       <select
-        class="flex justify-center m-auto rounded-2xl border-2 w-1/2"
+        class="flex p-1 justify-center m-auto border-2 w-2/3 text-gray-400"
         name="select"
         value="filter"
         label="{}"
       >
-        <option>Search Products...</option>
-        <option value="categories">Category</option>
-        <option value="catNames">Category Name</option>
-        <option>All</option>
+        <option disabled selected>Search Products...</option>
+        <option>Show All</option>
+        <option
+          v-for="product in products"
+          :value="product.category"
+          :key="product.id"
+        >
+          {{ product.catname }}
+        </option>
       </select>
     </form>
     <div class="container justify-center m-auto">

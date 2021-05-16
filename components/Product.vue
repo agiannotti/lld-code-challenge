@@ -1,12 +1,6 @@
 <template>
-  <div class="flex--me relative max-w-52 block m-1">
-    <!-- <span class="relative bg-black opacity-70 z-10"
-      ><img class="max-h-48 min-w-48 z-0" :src="product.image" alt="" /><span
-        class="relative b-0 z-20 text-white text-sm"
-        >{{ product.name }}${{ product.price }}</span
-      ></span
-    > -->
-    <img class="w-full h-52" :src="product.image" alt="" />
+  <div class="flex-custom relative max-w-52 block m-1">
+    <img class="w-full h-52" :src="product.image" :alt="product.name" />
     <span
       class="
         absolute
