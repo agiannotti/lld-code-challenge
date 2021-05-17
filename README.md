@@ -1,5 +1,6 @@
 # LLD Code Challenge
-[Staging Link](https://agiannotti.github.io/lld-code-challenge/data/) 
+
+[Staging Link](https://agiannotti.github.io/lld-code-challenge/data/)
 
 https://github.com/agiannotti/lld-code-challenge
 
@@ -15,6 +16,7 @@ This application was developed as part of a coding challenge for LimeLight Devs,
 ## BackLog User Stories
 
 - A user can paginate results from server determined values
+- filter results after unique categories
 
 ## Features
 
@@ -25,7 +27,7 @@ This application was developed as part of a coding challenge for LimeLight Devs,
 - Data is displayed in a 4 column grid using flexbox
 - Entire project must be responsive on all screen sizes
 - Create an array of unique categories from the api data
-- Create a dropdown menu that has a list of unique categories you can filter by
+- Create a dropdown menu that has a list of unique categories
 
 ## Technologies Used
 

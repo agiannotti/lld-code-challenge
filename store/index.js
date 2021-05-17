@@ -10,7 +10,7 @@ export const getters = {
   getProducts(state) {
     return state.products;
   },
-  filterByName(state) {
+  filterByCategory(state, e) {
     state.products = results.filter((product) => {
       return product.catname === e;
     });
@@ -25,10 +25,6 @@ export const actions = {
     state.commit('setProducts', product);
     state.commit('setCategories', product);
     state.commit('removeDuplicates', product);
-  },
-  async filterByCategory(e) {
-    const res = await this.$axios.$get(API_URL);
-    const results = res.data;
   },
 };
 

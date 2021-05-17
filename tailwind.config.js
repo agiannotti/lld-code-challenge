@@ -3,7 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     flex: {
-      custom: '0 1 22%',
+      custom: '0 1 23%',
     },
     extend: {},
   },

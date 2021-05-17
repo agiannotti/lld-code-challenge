@@ -34,7 +34,7 @@
       </select>
     </form>
     <div class="container justify-center m-auto">
-      <div class="flex flex-wrap justify-center">
+      <div class="flex-col flex sm:flex-row sm:flex-wrap justify-center">
         <Product
           v-for="product in $store.state.products"
           :key="product.id"
@@ -47,30 +47,22 @@
 
 <script>
 import Product from '../components/Product';
-import { mapState } from 'vuex';
 export default {
   components: {
     Product,
   },
+
   data() {
-    return { filtered: [], selected: '' };
+    return { selected: '' };
   },
 
   mounted() {
     this.$store.dispatch('getData');
   },
-  method: {
+  methods: {
     onChange(event) {
-      this.selected === event.target;
-    },
-  },
-
-  computed: {
-    ...mapState(['products']),
-    filteredProducts() {
-      return (this.products = this.products.filter((product) => {
-        return product.catname === this.selected;
-      }));
+      this.selected === event.target.value;
+      console.log(this.selected);
     },
   },
 };
