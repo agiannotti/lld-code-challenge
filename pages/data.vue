@@ -56,25 +56,12 @@ export default {
     return { products: [] };
   },
 
-  // async fetch({ $axios, store }) {
-  //   const API_URL =
-  //     'https://trayvonnorthern.com/Edgewood-API/public/api/products';
-  //   const res = await $axios.$get(API_URL);
-  //   const products = res.data;
-
-  // store.commit('uniqueCats', products);
-  // store.commit('uniqueCategories', products);
   mounted() {
-    // store.commit('getData')
     this.$store.dispatch('getData');
   },
-  // store.commit('addProducts', products);
-  // store.commit('removeDuplicates', products);
-  // },,
   methods: {
     handleSelect(e) {
-      this.$store.commit('findByCat', e);
-      // return this.$store.getters.findByCat(e);
+      this.$store.getters.findByCategory(e);
     },
   },
 };
