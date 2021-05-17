@@ -3,7 +3,7 @@
     <h1
       class="
         flex
-        text-2xl text-red-800
+        text-2xl text-red-700
         justify-center
         m-auto
         font-semibold
@@ -15,9 +15,10 @@
     <form class="">
       <label for="select"></label>
       <select
-        class="flex p-1 justify-center m-auto border-2 w-2/3 text-gray-400"
+        @change="handleSelect($event.target.value)"
+        class="flex p-1 justify-center m-auto border-2 w-2/3 text-black"
         name="select"
-        value="filter"
+        value=""
         label="{}"
       >
         <option disabled selected>Search Products...</option>
@@ -46,28 +47,35 @@
 
 <script>
 import Product from '../components/Product';
-import Categories from '../components/Categories';
 export default {
   components: {
     Product,
-    Categories,
   },
 
   data() {
-    return { products: {} };
+    return { products: [] };
   },
 
-  async fetch({ $axios, store }) {
-    const API_URL =
-      'https://trayvonnorthern.com/Edgewood-API/public/api/products';
-    const res = await $axios.$get(API_URL);
-    const products = res.data;
+  // async fetch({ $axios, store }) {
+  //   const API_URL =
+  //     'https://trayvonnorthern.com/Edgewood-API/public/api/products';
+  //   const res = await $axios.$get(API_URL);
+  //   const products = res.data;
 
-    // store.commit('uniqueCats', products);
-    // store.commit('uniqueCategories', products);
-    store.commit('addCategories', products);
-    store.commit('addProducts', products);
-    store.commit('removeDuplicates', products);
+  // store.commit('uniqueCats', products);
+  // store.commit('uniqueCategories', products);
+  mounted() {
+    // store.commit('getData')
+    this.$store.dispatch('getData');
+  },
+  // store.commit('addProducts', products);
+  // store.commit('removeDuplicates', products);
+  // },,
+  methods: {
+    handleSelect(e) {
+      this.$store.commit('findByCat', e);
+      // return this.$store.getters.findByCat(e);
+    },
   },
 };
 </script>

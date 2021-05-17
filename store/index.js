@@ -1,27 +1,34 @@
+const API_URL = 'https://trayvonnorthern.com/Edgewood-API/public/api/products';
 //state
 export const state = () => ({
   products: [],
-  pagination: [],
-  uniqueCategories: [],
   categories: [],
 });
 
 //getters
-export const getters = {};
-
+export const getters = {
+  getProducts(state) {
+    return state.products;
+  },
+};
 // actions
 // Use for async!
-// export const actions = {
-//   async getProducts({ commit }) {
-//     // hit api with some axios
-//     const API_URL =
-//       'https://trayvonnorthern.com/Edgewood-API/public/api/products';
-//     const products = await this.$axios.$post(API_URL);
-//     // commit mutation
-//     commit('addProducts', products);
-//     return { products };
-//   },
-// };
+export const actions = {
+  async getData(state) {
+    const res = await this.$axios.$post(API_URL);
+    const product = res.data;
+    console.log('hello!', product);
+    state.commit('setProducts', product);
+  },
+  // async getData({ commit }) {
+  //   // hit api with some axios
+
+  //   const res = await this.$axios.$post(API_URL, { headers });
+  //   const products = res.data;
+  //   // commit mutation
+  //   commit('setProducts', products);
+  // },
+};
 
 // mutations
 // synchronous, will not wait
@@ -39,10 +46,8 @@ export const mutations = {
   //   console.log(products);
   //   console.log(state.uniqueCategories);
   // },
-  addProducts(state, products) {
-    for (let i = 0; i < products.length; i++) {
-      state.products.push(products[i]);
-    }
+  setProducts(state, payload) {
+    state.product = payload;
   },
   addCategories(state, products) {
     for (let i = 0; i < products.length; i++) {
@@ -52,7 +57,6 @@ export const mutations = {
       product_obj.catname = products[i].catname;
       state.categories.push(product_obj);
     }
-    console.log(state.categories);
   },
   removeDuplicates(state) {
     let setObj = new Set();
@@ -64,6 +68,11 @@ export const mutations = {
       return acc;
     }, []);
     state.categories = result;
+  },
+  findByCat(state, e) {
+    state.products = state.products.filter((product) => {
+      return product.catname === e;
+    });
   },
 };
 
