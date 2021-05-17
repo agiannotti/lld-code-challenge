@@ -47,7 +47,7 @@ This project is my first application utilizing Vue, Tailwind, and Nuxt. I really
 - I should have taken this project on with TypeScript!
 - I chose vue3 and found it challenging to adapt but very fun to read docs on new frameworks and tools. Tailwind is great.
 
-#### App component got messy as features were implemented
+#### data page got messy as features were implemented
 
 ###### To address this in the future, I intend to:
 
