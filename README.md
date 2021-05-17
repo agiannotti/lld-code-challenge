@@ -11,7 +11,7 @@ This application was developed as part of a coding challenge for LimeLight Devs,
 ## User Stories
 
 - A user can view a list of products
-- A user can view a list of products sorted by available categories
+- A user can view a list of available categories
 
 ## BackLog User Stories
 
