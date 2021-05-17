@@ -1,6 +1,6 @@
 # LLD Code Challenge
 
-[Staging Link](https://agiannotti.github.io/lld-code-challenge/data/)
+[Staging Link](https://lld-code-challenge.netlify.app/data/)
 
 https://github.com/agiannotti/lld-code-challenge
 
