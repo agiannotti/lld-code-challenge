@@ -12,17 +12,17 @@
     >
       Products
     </h1>
-    <form class="">
+    <form class="form-control">
       <label for="select"></label>
       <select
-        @change="handleSelect($event.target.value)"
+        v-model="selected"
+        @change="onChange($event)"
         class="flex p-1 justify-center m-auto border-2 w-2/3 text-black"
         name="select"
         value=""
         label="{}"
       >
         <option disabled selected>Search Products...</option>
-        <option>Show All</option>
         <option
           class="text-black"
           v-for="category in $store.state.categories"
@@ -47,21 +47,30 @@
 
 <script>
 import Product from '../components/Product';
+import { mapState } from 'vuex';
 export default {
   components: {
     Product,
   },
-
   data() {
-    return { products: [] };
+    return { filtered: [], selected: '' };
   },
 
   mounted() {
     this.$store.dispatch('getData');
   },
-  methods: {
-    handleSelect(e) {
-      this.$store.getters.findByCategory(e);
+  method: {
+    onChange(event) {
+      this.selected === event.target;
+    },
+  },
+
+  computed: {
+    ...mapState(['products']),
+    filteredProducts() {
+      return (this.products = this.products.filter((product) => {
+        return product.catname === this.selected;
+      }));
     },
   },
 };
