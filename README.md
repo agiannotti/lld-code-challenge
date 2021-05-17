@@ -10,7 +10,6 @@ This application was developed as part of a coding challenge for LimeLight Devs,
 
 - A user can view a list of products
 - A user can view a list of products sorted by available categories
-- A user can see a "loading..." while data is being retreived
 
 ## BackLog User Stories
 
