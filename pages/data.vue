@@ -23,10 +23,13 @@
         <option disabled selected>Search Products...</option>
         <option>Show All</option>
         <option
-          v-for="cat in $store.state.uniqueCats"
-          :key="cat.id"
-          :value="cat.id"
-        ></option>
+          class="text-black"
+          v-for="category in $store.state.categories"
+          :key="category.id"
+          :value="category.catname"
+        >
+          {{ category.catname }}
+        </option>
       </select>
     </form>
     <div class="container justify-center m-auto">
@@ -59,9 +62,12 @@ export default {
       'https://trayvonnorthern.com/Edgewood-API/public/api/products';
     const res = await $axios.$get(API_URL);
     const products = res.data;
-    store.commit('uniqueCats', products);
+
+    // store.commit('uniqueCats', products);
+    // store.commit('uniqueCategories', products);
     store.commit('addCategories', products);
     store.commit('addProducts', products);
+    store.commit('removeDuplicates', products);
   },
 };
 </script>
