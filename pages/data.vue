@@ -23,18 +23,16 @@
         <option disabled selected>Search Products...</option>
         <option>Show All</option>
         <option
-          v-for="product in products"
-          :value="product.category"
-          :key="product.id"
-        >
-          {{ product.catname }}
-        </option>
+          v-for="cat in $store.state.uniqueCats"
+          :key="cat.id"
+          :value="cat.id"
+        ></option>
       </select>
     </form>
     <div class="container justify-center m-auto">
       <div class="flex flex-wrap justify-center">
         <Product
-          v-for="product in products"
+          v-for="product in $store.state.products"
           :key="product.id"
           :product="product"
         />
@@ -53,22 +51,17 @@ export default {
   },
 
   data() {
-    return { products: [] };
+    return { products: {} };
   },
-  async asyncData({ $axios }) {
-    try {
-      const API_URL =
-        'https://trayvonnorthern.com/Edgewood-API/public/api/products';
-      const res = await $axios.$get(API_URL);
-      const products = res.data;
-      return { products };
-    } catch (error) {
-      console.log(error);
-    }
+
+  async fetch({ $axios, store }) {
+    const API_URL =
+      'https://trayvonnorthern.com/Edgewood-API/public/api/products';
+    const res = await $axios.$get(API_URL);
+    const products = res.data;
+    store.commit('uniqueCats', products);
+    store.commit('addCategories', products);
+    store.commit('addProducts', products);
   },
 };
-
-export const state = (products) => ({
-  products,
-});
 </script>
