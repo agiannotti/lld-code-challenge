@@ -1,5 +1,6 @@
 # LLD Code Challenge
-[Live Client Deployment](https://agiannotti.github.io/lld-code-challenge/data/) 
+[Staging Link](https://agiannotti.github.io/lld-code-challenge/data/) 
+
 https://github.com/agiannotti/lld-code-challenge
 
 ## Summary
